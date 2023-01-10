@@ -1,0 +1,76 @@
+<h1>Profil</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="username">Uporabniško ime</label>
+            <input type="text" id="username" class="form-control" formControlName="username">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Ime</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="last_name">Priimek</label>
+            <input type="text" id="last_name" class="form-control" formControlName="last_name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" formControlName="email">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success">Posodobi</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<h1>Spremeni geslo uporabnika</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="updatePasswordForm" (ngSubmit)="onSubmitPassword()">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="new_password">Novo geslo</label>
+            <input type="password" id="new_password" class="form-control" formControlName="new_password">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="repeat_password">Ponovi novo geslo</label>
+            <input type="password" id="repeat_password" class="form-control" formControlName="repeat_password">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success">Spremeni geslo</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

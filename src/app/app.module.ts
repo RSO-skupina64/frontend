@@ -6,10 +6,7 @@ import {HeaderComponent} from './header/header.component';
 import {ProductsComponent} from './products/products.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductItemComponent} from './products/product-list/product-item/product-item.component';
-import {ShoppingListComponent} from './shopping-list/shopping-list.component';
-import {ShoppingEditComponent} from './shopping-list/shopping-edit/shopping-edit.component';
 import {DropdownDirective} from "./models/dropdown.directive";
-import {ShoppingListService} from "./shopping-list/shopping-list.service";
 import {AppRoutingModule} from "./app.routing-module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ProductService} from "./products/product.service";
@@ -17,9 +14,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {ProductDetailComponent} from './products/product-detail/product-detail.component';
 import {LoginComponent} from './authentication/login/login.component';
 import {RegisterComponent} from "./authentication/register/register.component";
-import { KosaricaComponent } from './kosarica/kosarica.component';
-import { KosaricaProductsComponent } from './kosarica-products/kosarica-products.component';
-import { KosaricaItemsComponent } from './kosarica-items/kosarica-items.component';
+import {KosaricaComponent} from './kosarica/kosarica.component';
+import {KosaricaProductsComponent} from './kosarica-products/kosarica-products.component';
+import {KosaricaItemsComponent} from './kosarica-items/kosarica-items.component';
+import {MojProfilComponent} from './moj-profil/moj-profil.component';
+import {AdministracijaComponent} from './administracija/administracija.component';
+import { AdministracijaIzdelkiComponent } from './administracija-izdelki/administracija-izdelki.component';
+import { AdministracijaIzdelkiPodrobnostiComponent } from './administracija-izdelki-podrobnosti/administracija-izdelki-podrobnosti.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +29,17 @@ import { KosaricaItemsComponent } from './kosarica-items/kosarica-items.componen
     ProductsComponent,
     ProductListComponent,
     ProductItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     DropdownDirective,
     ProductDetailComponent,
     LoginComponent,
     RegisterComponent,
     KosaricaComponent,
     KosaricaProductsComponent,
-    KosaricaItemsComponent
+    KosaricaItemsComponent,
+    MojProfilComponent,
+    AdministracijaComponent,
+    AdministracijaIzdelkiComponent,
+    AdministracijaIzdelkiPodrobnostiComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import { KosaricaItemsComponent } from './kosarica-items/kosarica-items.componen
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService, ProductService],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

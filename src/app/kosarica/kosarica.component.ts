@@ -1,8 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../products/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../models/product.model";
 import {FavoriteProductsService} from "./favorite-products.service";
+import {KosaricaProduct} from "../models/kosarica-item.model";
+import {PriceCalculationService} from "../price-calculation.service";
+import {CalculatePriceRequestModel} from "../models/calculate-price-request.model";
+import {ShopPriceModel} from "../models/shop-price.model";
 
 @Component({
   selector: 'app-kosarica',
@@ -11,11 +15,12 @@ import {FavoriteProductsService} from "./favorite-products.service";
 })
 export class KosaricaComponent implements OnInit {
   products: Product[];
-  kosarica: Product[];
+  kosarica: KosaricaProduct[];
   cena: number;
+  cene: ShopPriceModel[];
 
   constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute,
-              private favoriteProductsService: FavoriteProductsService) {
+              private favoriteProductsService: FavoriteProductsService, private priceService: PriceCalculationService) {
     this.cena = 0;
   }
 
@@ -38,22 +43,37 @@ export class KosaricaComponent implements OnInit {
 
   addFavorite(product: Product) {
     console.log('adding ' + product.id);
-    this.kosarica.push(product);
+    this.kosarica.push(new KosaricaProduct(product, 1));
     let index = this.products.indexOf(product);
     this.products.splice(index, 1);
   }
 
-  removeFavorite(product: Product) {
-    console.log('removing ' + product.id);
-    this.products.push(product);
-    let index = this.kosarica.indexOf(product);
+  removeFavorite(kosaricaProduct: KosaricaProduct) {
+    console.log('removing ' + kosaricaProduct.product.id);
+    this.products.push(kosaricaProduct.product);
+    let index = this.kosarica.indexOf(kosaricaProduct);
     this.kosarica.splice(index, 1);
   }
 
   izracunCene() {
     console.log('izračun cene za:');
     console.log(this.kosarica);
+    // map object
+    let req = this.kosarica.map(value => {
+      return {
+        id_product: value.product.id,
+        quantity: value.quantity
+      };
+    });
+    this.priceService.calculatePriceAllShops(new CalculatePriceRequestModel(req))
+      .subscribe(result => {
+        this.cene = result.shopPrices;
+      });
     this.cena = 10;
+  }
+
+  onQuantityChange(change: {quantity: number, index: number}) {
+    this.kosarica[change.index].quantity = change.quantity;
   }
 
 

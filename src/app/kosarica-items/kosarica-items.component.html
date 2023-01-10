@@ -1,8 +1,11 @@
-<a style="cursor: pointer" class="list-group-item clearfix" (click)="remove()" routerLinkActive="active">
+<a style="cursor: pointer" class="list-group-item clearfix" routerLinkActive="active">
   <div class="pull-left">
-    <h4 class="list-group-item-heading">{{product.name}}</h4>
-    <p class="list-group-item-text">{{product.brand}}</p>
-    <p class="list-group-item-text">{{product.concentration}} {{product.concentration_unit}}</p>
+    <h4 class="list-group-item-heading">{{kosaricaProduct.product.name}}</h4>
+    <p class="list-group-item-text">{{kosaricaProduct.product.brand}}</p>
+    <p class="list-group-item-text">{{kosaricaProduct.product.concentration}} {{kosaricaProduct.product.concentration_unit}}</p>
+    <label for="kolicina">Količina</label>
+    <input type="number" [(ngModel)]="value" id="kolicina" (input)="updateQuantity($event)" value="{{kosaricaProduct.quantity}}">
+    <button (click)="remove()" class="btn btn-danger">Odstrani</button>
   </div>
   <span class="pull-right">
 

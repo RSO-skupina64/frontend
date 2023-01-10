@@ -6,7 +6,7 @@
   </div>
   <div class="col-xs-6">
     <h1>Izdelki v košarici</h1>
-    <app-kosarica-items *ngFor="let recipeEl; let i = index of kosarica" [product]="recipeEl"></app-kosarica-items>
+    <app-kosarica-items *ngFor="let recipeEl; let i = index of kosarica" [kosaricaProduct]="recipeEl" [i]="i" (quantityChanged)="onQuantityChange($event)"></app-kosarica-items>
     <div class="row">
       <div class="col-xs-12">
         <button class="btn btn-success" (click)="izracunCene()">Izračun cene</button>
@@ -14,7 +14,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <p>Izračuna cena je: {{cena}} EUR.</p>
+        <p *ngFor="let cena of cene">Izračuna cena za trgovino {{cena.name}} je: {{cena.price_total_EUR}} EUR.</p>
       </div>
     </div>
   </div>

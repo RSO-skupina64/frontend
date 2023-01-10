@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { catchError } from 'rxjs/operators';
 import {Product} from "../models/product.model";
 import {MessageResponse} from "../models/register.model";
+import {KosaricaProduct} from "../models/kosarica-item.model";
 
 @Injectable({providedIn: 'root'})
 export class FavoriteProductsService {
@@ -40,14 +41,13 @@ export class FavoriteProductsService {
       .pipe(catchError(this.handleError));
   }
 
-  removeFavoriteProduct(product: Product) {
-    let req = {product_id: product.id};
+  removeFavoriteProduct(kosaricaProduct: KosaricaProduct) {
+    let req = {product_id: kosaricaProduct.product.id};
     let jwt = localStorage.getItem('jwt');
     if (jwt === null)
       jwt = "bearer";
     console.log(jwt);
     let header = new HttpHeaders();
-    header = header.set('Authorization', jwt);
     let url1 = this.url + '';
     header = header.set('Authorization', jwt);
     return this.http.delete<MessageResponse>(url1, {body: req, headers: header})

@@ -19,10 +19,15 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['login'], {relativeTo: this.route});
   }
 
-  onFetchData() {
+  onOdjava() {
+    this.router.navigate(['/'], {relativeTo: this.route});
   }
 
   onRegistracija() {
     this.router.navigate(['register'], {relativeTo: this.route});
+  }
+
+  onMojProfil() {
+    this.router.navigate(['profile'], {relativeTo: this.route});
   }
 }

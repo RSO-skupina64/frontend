@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Product} from "../models/product.model";
+import {ProductService} from "../products/product.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {Product} from "../../models/product.model";
-import {ProductService} from "../product.service";
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  selector: 'app-administracija-izdelki-podrobnosti',
+  templateUrl: './administracija-izdelki-podrobnosti.component.html',
+  styleUrls: ['./administracija-izdelki-podrobnosti.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class AdministracijaIzdelkiPodrobnostiComponent implements OnInit {
   product: Product;
   id: number;
 
@@ -22,6 +22,5 @@ export class ProductDetailComponent implements OnInit {
       }
     )
   }
-
 
 }
