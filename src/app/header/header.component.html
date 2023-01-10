@@ -5,16 +5,16 @@
     </div>
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="/recipes">Izdelki</a> </li>
-        <li routerLinkActive="active"><a routerLink="/shopping-list">Sestavi košarico</a> </li>
-        <li routerLinkActive="active"><a routerLink="/shopping-list">Priljubljeni izdelki</a> </li>
+        <li routerLinkActive="active"><a routerLink="/products">Izdelki</a> </li>
+        <li routerLinkActive="active"><a routerLink="/kosarica">Sestavi košarico</a> </li>
         <li routerLinkActive="active"><a routerLink="/shopping-list">Admnistracija</a> </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" appDropdown>
           <a class="dropdown-toggle" style="cursor: pointer;">Profil<span class="caret"></span> </a>
           <ul class="dropdown-menu">
-            <li><a style="cursor: pointer;" (click)="onSaveData()">Prijava</a></li>
+            <li><a style="cursor: pointer;" (click)="onRegistracija()">Registracija</a></li>
+            <li><a style="cursor: pointer;" (click)="onLogin()">Prijava</a></li>
             <li><a style="cursor: pointer;" (click)="onFetchData()">Moj Profil</a></li>
             <li><a style="cursor: pointer;" (click)="onFetchData()">Odjava</a></li>
           </ul>

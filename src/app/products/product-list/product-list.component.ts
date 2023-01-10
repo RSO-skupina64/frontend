@@ -22,11 +22,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   onRecipe() {
+    console.log('click');
     this.router.navigate(['new'], {relativeTo: this.route})
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
 

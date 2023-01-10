@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h1>Izdelki, ki niso v košarici</h1>
+    <app-kosarica-product-item *ngFor="let recipeEl; let i = index of products" [product]="recipeEl"
+                               [index]="i"></app-kosarica-product-item>
+  </div>
+  <div class="col-xs-6">
+    <h1>Izdelki v košarici</h1>
+    <app-kosarica-items *ngFor="let recipeEl; let i = index of kosarica" [product]="recipeEl"></app-kosarica-items>
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="btn btn-success" (click)="izracunCene()">Izračun cene</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Izračuna cena je: {{cena}} EUR.</p>
+      </div>
+    </div>
+  </div>
+</div>
+

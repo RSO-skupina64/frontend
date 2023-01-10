@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {ProductResponse} from "../models/product-response.model";
+import {ProductResponse, SingleProductResponse} from "../models/product-response.model";
 import {HttpClient} from "@angular/common/http";
 import { catchError } from 'rxjs/operators';
 
@@ -13,12 +13,16 @@ export class ProductService {
 
 
   getProducts() {
-    return this.http.get<ProductResponse[]>(this.url)
+    let url1 = this.url + '?limit=10&offset=0';
+    return this.http.get<ProductResponse[]>(url1)
       .pipe(catchError(this.handleError));
   }
 
   getProduct(id: number) {
-    return this.products[id];
+    id = id + 1;
+    let url1 = this.url + '/' + id;
+    return this.http.get<SingleProductResponse>(url1)
+      .pipe(catchError(this.handleError));
   }
 
   addProduct(product: ProductResponse) {
