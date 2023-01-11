@@ -10,15 +10,15 @@ export class LoginRequest {
 }
 
 export class LoginResponse {
-  public accessToken: string;
-  public refreshToken: string;
-  public expiresIn: string;
+  public access_token: string;
+  public refresh_token: string;
+  public expires_in: string;
 
 
   constructor(accessToken: string, refreshToken: string, expiresIn: string) {
-    this.accessToken = accessToken;
-    this.refreshToken = refreshToken;
-    this.expiresIn = expiresIn;
+    this.access_token = accessToken;
+    this.refresh_token = refreshToken;
+    this.expires_in = expiresIn;
   }
 }
 

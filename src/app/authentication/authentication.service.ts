@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import {ProductResponse} from "../models/product-response.model";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {LoginRequest, LoginResponse} from "../models/login-request.model";
 import {MessageResponse, RegisterRequest} from "../models/register.model";
@@ -19,14 +18,10 @@ export class AuthenticationService {
     let url1 = this.url + '/login';
     return this.http.post<LoginResponse>(url1, req)
       .subscribe(res => {
-        localStorage.removeItem('jwt');
-        localStorage.setItem('jwt', res.accessToken);
         console.log(res);
+        localStorage.removeItem('jwt');
+        localStorage.setItem('jwt', res.access_token);
       });
-  }
-
-  logout() {
-
   }
 
   register(registerReq: RegisterRequest) {
@@ -63,7 +58,7 @@ export class AuthenticationService {
   }
 
   updatePassword(req: UpdatePasswordModel) {
-    let url1 = this.url + '/user-change-password';
+    let url1 = this.url + '/user/change-password';
     let header = new HttpHeaders();
     let jwt = localStorage.getItem('jwt');
     if (jwt === null)
