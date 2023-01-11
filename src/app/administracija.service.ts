@@ -28,4 +28,36 @@ export class AdministracijaService {
     return Promise.reject(error.message || error);
   }
 
+  updateProduct(req: {
+    id_product: number,
+    name: string,
+    brand: string,
+    id_product_type: string,
+    concentration: number,
+    concentration_unit: string
+  }) {
+    let url1 = this.url + '/product';
+    let header = new HttpHeaders();
+    let jwt = localStorage.getItem('jwt');
+    if (jwt === null)
+      jwt = "bearer";
+    console.log(jwt);
+    header = header.set('Authorization', jwt);
+    return this.http.put<MessageResponse>(url1, req, {headers: header});
+  }
+
+  deleteProduct(id: number) {
+    let req = {
+      id_product: id
+    };
+    let url1 = this.url + '/product';
+    let header = new HttpHeaders();
+    let jwt = localStorage.getItem('jwt');
+    if (jwt === null)
+      jwt = "bearer";
+    console.log(jwt);
+    header = header.set('Authorization', jwt);
+    return this.http.delete<MessageResponse>(url1, {body: req, headers: header});
+  }
+
 }

@@ -1,12 +1,10 @@
 <a style="cursor: pointer" class="list-group-item clearfix" [routerLink]="[product.id]" routerLinkActive="active">
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>{{product.name}}</h3>
-    </div>
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{product.name}}</h4>
+    <p class="list-group-item-text">{{product.brand}}</p>
+    <p class="list-group-item-text">{{product.concentration}} {{product.concentration_unit}}</p>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      {{product.brand}}
-    </div>
-  </div>
+  <span class="pull-right">
+
+      </span>
 </a>

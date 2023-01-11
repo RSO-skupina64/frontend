@@ -1,29 +1,54 @@
-<!--<div class="row">-->
-<!--  <div class="col-xs-12">-->
-<!--    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">-->
-<!--      <div class="row">-->
-<!--      </div>-->
-<!--      <div class="row">-->
-<!--        <div class="col-xs-12">-->
-<!--          <div class="form-group">-->
-<!--            <label for="username">Username</label>-->
-<!--            <input type="text" id="username" class="form-control" formControlName="username">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="row">-->
-<!--        <div class="col-xs-12">-->
-<!--          <div class="form-group">-->
-<!--            <label for="password">Password</label>-->
-<!--            <input type="password" id="password" class="form-control" formControlName="password">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="row">-->
-<!--        <div class="col-xs-12">-->
-<!--          <button type="submit" class="btn btn-success">Login</button>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </form>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="updateProductForm" (ngSubmit)="updateProduct()">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Naziv izdelka</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="brand">Znamka</label>
+            <input type="text" id="brand" class="form-control" formControlName="brand">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="type">Tip</label>
+            <input type="text" id="type" class="form-control" formControlName="type">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="concentration">Koncentracija</label>
+            <input type="text" id="concentration" class="form-control" formControlName="concentration">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="concentration_unit">Enota koncentracije</label>
+            <input type="text" id="concentration_unit" class="form-control" formControlName="concentration_unit">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success">Posodobi</button>
+          <button type="button" class="btn btn-danger" (click)="removeProduct()">Izbriši</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

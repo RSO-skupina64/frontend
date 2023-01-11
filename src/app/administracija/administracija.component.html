@@ -1,12 +1,13 @@
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-md-5">
     <button class="btn btn-success" (click)="pridobiCene()">Pridobi cene izdelkov za vse trgovine</button>
+    <div class="row">
+      <h1>Izdelki</h1>
+      <app-administracija-izdelki *ngFor="let recipeEl; let i = index of products" [product]="recipeEl"
+                                  [index]="i"></app-administracija-izdelki>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-6">
-    <h1>Izdelki</h1>
-    <app-administracija-izdelki *ngFor="let recipeEl; let i = index of products" [product]="recipeEl"
-                               [index]="i"></app-administracija-izdelki>
+  <div class="col-md-7">
+    <router-outlet></router-outlet>
   </div>
 </div>

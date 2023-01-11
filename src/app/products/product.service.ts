@@ -13,13 +13,12 @@ export class ProductService {
 
 
   getProducts() {
-    let url1 = this.url + '?limit=10&offset=0';
+    let url1 = this.url + '?limit=50&offset=0';
     return this.http.get<ProductResponse[]>(url1)
       .pipe(catchError(this.handleError));
   }
 
   getProduct(id: number) {
-    id = id + 1;
     let url1 = this.url + '/' + id;
     return this.http.get<SingleProductResponse>(url1)
       .pipe(catchError(this.handleError));
